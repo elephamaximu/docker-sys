@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true plato28/docker-sys npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-sys"
+  env: "Dockersys-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-822637900730"
+  bucket_path: "docker-sys"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
