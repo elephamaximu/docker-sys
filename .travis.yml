@@ -7,4 +7,4 @@ before_install:
   - docker build -t plato28/docker-sys -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true USERNAME/docker-react npm run test
+  - docker run -e CI=true plato28/docker-sys npm run test
